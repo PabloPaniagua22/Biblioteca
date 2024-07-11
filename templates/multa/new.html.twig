@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Multa{% endblock %}
+
+{% block body %}
+    <h1>Create new Multa</h1>
+
+    {{ include('multa/_form.html.twig') }}
+
+    <a href="{{ path('app_multa_index') }}">back to list</a>
+{% endblock %}

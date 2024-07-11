@@ -2,30 +2,31 @@
 
 namespace App\Form;
 
-use App\Entity\Bibliotecario;
+use App\Entity\Material;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class Bibliotecario1Type extends AbstractType
+class MaterialType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Nombre')
-            ->add('Apellido')
-            ->add('Direccion')
-            ->add('Telefono')
-            ->add('Correo_electronico')
-            ->add('Fecha_Contratacion')
-            ->add('Turno_Trabajo')
+            ->add('Titulo')
+            ->add('Autor')
+            ->add('Editorial')
+            ->add('Fecha_Publicacion')
+            ->add('Nro_Ejemplares')
+            ->add('Ubicacion')
+            ->add('Tipo')
+            ->add('Categoria')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Bibliotecario::class,
+            'data_class' => Material::class,
         ]);
     }
 }

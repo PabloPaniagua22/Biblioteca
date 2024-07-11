@@ -2,30 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Bibliotecario;
+use App\Entity\Multa;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class Bibliotecario1Type extends AbstractType
+class MultaType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Nombre')
-            ->add('Apellido')
-            ->add('Direccion')
-            ->add('Telefono')
-            ->add('Correo_electronico')
-            ->add('Fecha_Contratacion')
-            ->add('Turno_Trabajo')
+            ->add('id_Bibliotecario')
+            ->add('id_Usuario')
+            ->add('id_Prestamo')
+            ->add('Monto')
+            ->add('fecha_Emision')
+            ->add('estado_Pago')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Bibliotecario::class,
+            'data_class' => Multa::class,
         ]);
     }
 }

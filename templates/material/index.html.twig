@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Material index{% endblock %}
+
+{% block body %}
+    <h1>Material index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Editorial</th>
+                <th>Fecha_Publicacion</th>
+                <th>Nro_Ejemplares</th>
+                <th>Ubicacion</th>
+                <th>Tipo</th>
+                <th>Categoria</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for material in materials %}
+            <tr>
+                <td>{{ material.id }}</td>
+                <td>{{ material.Titulo }}</td>
+                <td>{{ material.Autor }}</td>
+                <td>{{ material.Editorial }}</td>
+                <td>{{ material.FechaPublicacion ? material.FechaPublicacion|date('Y-m-d') : '' }}</td>
+                <td>{{ material.NroEjemplares }}</td>
+                <td>{{ material.Ubicacion }}</td>
+                <td>{{ material.Tipo }}</td>
+                <td>{{ material.Categoria }}</td>
+                <td>
+                    <a href="{{ path('app_material_show', {'id': material.id}) }}">show</a>
+                    <a href="{{ path('app_material_edit', {'id': material.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_material_new') }}">Create new</a>
+{% endblock %}

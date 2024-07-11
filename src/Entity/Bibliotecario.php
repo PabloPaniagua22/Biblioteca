@@ -18,6 +18,9 @@ class Bibliotecario
     private ?string $Nombre = null;
 
     #[ORM\Column(length: 150)]
+    private ?string $Apellido = null;
+
+    #[ORM\Column(length: 150)]
     private ?string $Direccion = null;
 
     #[ORM\Column]
@@ -32,8 +35,7 @@ class Bibliotecario
     #[ORM\Column(length: 35)]
     private ?string $Turno_Trabajo = null;
 
-    #[ORM\Column(length: 150)]
-    private ?string $Apellido = null;
+
 
     public function getId(): ?int
     {
