@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Materiales{% endblock %}
+
+{% block body %}
+    <h1>Materiales</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ materiale.id }}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ materiale.Titulo }}</td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td>{{ materiale.Autor }}</td>
+            </tr>
+            <tr>
+                <th>Editorial</th>
+                <td>{{ materiale.Editorial }}</td>
+            </tr>
+            <tr>
+                <th>Fecha_Publicacion</th>
+                <td>{{ materiale.FechaPublicacion ? materiale.FechaPublicacion|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nro_Ejemplares</th>
+                <td>{{ materiale.NroEjemplares }}</td>
+            </tr>
+            <tr>
+                <th>Ubicacion</th>
+                <td>{{ materiale.Ubicacion }}</td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td>{{ materiale.Tipo }}</td>
+            </tr>
+            <tr>
+                <th>Categoria</th>
+                <td>{{ materiale.Categoria }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_materiales_index') }}">back to list</a>
+
+    <a href="{{ path('app_materiales_edit', {'id': materiale.id}) }}">edit</a>
+
+    {{ include('materiales/_delete_form.html.twig') }}
+{% endblock %}

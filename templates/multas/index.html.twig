@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Multas index{% endblock %}
+
+{% block body %}
+    <h1>Multas index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Monto</th>
+                <th>Fecha_Emision</th>
+                <th>Estado_Pago</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for multa in multas %}
+            <tr>
+                <td>{{ multa.id }}</td>
+                <td>{{ multa.Monto }}</td>
+                <td>{{ multa.FechaEmision ? multa.FechaEmision|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ multa.EstadoPago }}</td>
+                <td>
+                    <a href="{{ path('app_multas_show', {'id': multa.id}) }}">show</a>
+                    <a href="{{ path('app_multas_edit', {'id': multa.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_multas_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Multas{% endblock %}
+
+{% block body %}
+    <h1>Edit Multas</h1>
+
+    {{ include('multas/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_multas_index') }}">back to list</a>
+
+    {{ include('multas/_delete_form.html.twig') }}
+{% endblock %}
